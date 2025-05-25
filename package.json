@@ -1,0 +1,31 @@
+{
+  "name": "@hashrytech/quick-functions",
+  "version": "1.0.0",
+  "description": "A collection of useful functions written in Type Script",
+  "main": "dist/quick-functions.cjs",
+  "type": "module",
+  "module": "dist/quick-functions.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/quick-functions.mjs",
+      "require": "./dist/quick-functions.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },  
+  "keywords": ["typescript", "utilities", "functions"],
+  "author": "Hashry Tech",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}
