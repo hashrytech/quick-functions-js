@@ -39,6 +39,12 @@ jobs:
           name: dist
           path: dist
 
+      - name: Set up git for pushing
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/hashrytech/quick-functions-js.git
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
