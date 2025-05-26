@@ -4,7 +4,7 @@
   "description": "A collection of useful functions written in Type Script",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hashrytech/quick-functions-js.git"
+    "url": "git+https://github.com/hashrytech/quick-functions-js.git"
   },
   "main": "dist/quick-functions.cjs",
   "type": "module",
