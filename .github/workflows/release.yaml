@@ -5,25 +5,24 @@ on:
     branches:
       - main
     tags:
-      - 'v*' # Triggers on version tag pushes like v1.0.0
+      - 'v*'
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
 
-
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # This is required for pushing tags!
+          fetch-depth: 0
 
-      - name: Use Node.js 20.x
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -35,32 +34,8 @@ jobs:
       - name: Build library
         run: npm run build
 
-      - name: Archive dist
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist
-
-      - name: Set up git for pushing
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/hashrytech/quick-functions-js.git
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          files: dist/**
-      
       - name: Semantic Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided by GitHub Actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
-
-      #- name: Publish to npm
-      #  env:
-      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #  run: npm publish --access public
