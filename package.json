@@ -1,24 +1,32 @@
 {
-  "name": "@hashrytech/quick-functions",
-  "version": "1.0.1",
+  "name": "@hashrytech/quick-functions-js",
+  "version": "1.1.5",
   "description": "A collection of useful functions written in Type Script",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hashrytech/quick-functions-js.git"
   },
-  "main": "dist/quick-functions.cjs",
+  "main": "dist/quick-functions-js.cjs",
   "type": "module",
-  "module": "dist/quick-functions.mjs",
+  "module": "dist/quick-functions-js.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/quick-functions.mjs",
-      "require": "./dist/quick-functions.cjs"
+      "import": "./dist/quick-functions-js.mjs",
+      "require": "./dist/quick-functions-js.cjs",
+      "default": "./dist/quick-functions-js.mjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,16 +43,8 @@
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.29.4",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.3",
-    "@semantic-release/npm": "^12.0.1",
-    "semantic-release": "^24.2.5",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4"
-  },
-  "dependencies": {
-    "@hashrytech/quick-functions": "file:"
   }
 }
