@@ -1,5 +1,11 @@
 # @hashrytech/quick-functions-js
 
+## 1.1.6
+
+### Patch Changes
+
+- check if removing exports allows types to work
+
 ## 1.1.5
 
 ### Patch Changes
