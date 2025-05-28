@@ -1,5 +1,11 @@
 # @hashrytech/quick-functions-js
 
+## 1.1.7
+
+### Patch Changes
+
+- Testing a new changeset addition
+
 ## 1.1.6
 
 ### Patch Changes
