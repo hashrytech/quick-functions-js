@@ -1,6 +1,6 @@
 {
   "name": "@hashrytech/quick-functions-js",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A collection of useful functions written in Type Script",
   "repository": {
     "type": "git",
@@ -10,14 +10,6 @@
   "type": "module",
   "module": "dist/quick-functions-js.mjs",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/quick-functions-js.mjs",
-      "require": "./dist/quick-functions-js.cjs",
-      "default": "./dist/quick-functions-js.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "files": [
     "dist",
     "LICENSE",
