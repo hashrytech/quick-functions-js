@@ -42,6 +42,14 @@ jobs:
         id: pkg
         run: echo "PACKAGE_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
+      - name: Extract latest release notes from CHANGELOG.md
+        id: changelog
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+        run: |
+          VERSION="v${{ env.PACKAGE_VERSION }}"
+          awk "/^## ${VERSION}/,/^## /{if(!/^## ${VERSION}/)print prev; prev=\$0}" CHANGELOG.md | head -n -1 > _release_body.md
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         env:
@@ -50,8 +58,9 @@ jobs:
         with:
           tag_name: v${{ env.PACKAGE_VERSION }}
           name: Release v${{ env.PACKAGE_VERSION }}
-          body: |
-            Automated release of v${{ env.PACKAGE_VERSION }}.
+          body_path: _release_body.md
+          #body: |
+          #  Automated release of v${{ env.PACKAGE_VERSION }}
           files: |
             dist/**
 
