@@ -1,5 +1,11 @@
 # @hashrytech/quick-functions-js
 
+## 1.2.0
+
+### Minor Changes
+
+- Adding a capitalizeFirstLetter function
+
 ## 1.1.7
 
 ### Patch Changes
