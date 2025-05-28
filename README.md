@@ -6,7 +6,7 @@ A collection of useful functions written in Type Script
 You can install the library via npm.
 
 ```bash
-npm install @hashrytech/quick-functions-js --save
+npm install @hashrytech/quick-functions-js
 ```
 
 or via yarn:

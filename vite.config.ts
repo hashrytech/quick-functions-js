@@ -9,6 +9,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
       fileName: (format) => `quick-functions-js.${format === 'es' ? 'mjs' : 'cjs'}`,
     },
+    minify: false,
     rollupOptions: {
       external: [], // Add dependencies here if you have any
     },
